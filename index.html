@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <title>Photos Gallery</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+  <body ng-controller="MainController">
+    <div class="container">
+      <!-- Thumbnails container -->
+      <div class="thumbnails-container">
+        <div class="thumbnail" ng-repeat="thumbnail in thumbnails">
+          <img
+            ng-src="{{thumbnail.thumbnail_url}}"
+            ng-click="showFullSize(thumbnail)"
+          />
+        </div>
+      </div>
+
+      <!-- Full-size image -->
+      <div class="full-size" ng-if="fullSizeImage">
+        <img ng-src="{{fullSizeImage.url}}" />
+      </div>
+    </div>
+  </body>
+</html>
